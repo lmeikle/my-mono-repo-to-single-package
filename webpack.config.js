@@ -1,10 +1,11 @@
 const path = require('path');
 
 module.exports = {
-  entry: ['babel-polyfill', './src/index.js'],
+  entry: ['./src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
+    library: 'my-mono-repo-to-single-package',
     libraryTarget: 'umd'
   },
   module: {

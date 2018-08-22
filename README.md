@@ -21,7 +21,7 @@ At present contains 2 packages: calculate-distance-util and simple-loading-compo
 
 ##### Publishing:
 
-* npm run publish --access public (will automatically run prepublish first)
+* npm publish --access public (will automatically run prepublish first)
 
 #### Structure
 

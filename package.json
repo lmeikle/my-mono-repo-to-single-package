@@ -1,6 +1,6 @@
 {
   "name": "@lmeikle/my-mono-repo-to-single-package",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "A single npm package containing multiple packages",
   "main": "dist/index.js",
   "repository": {

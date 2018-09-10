@@ -1,18 +1,23 @@
 const path = require("path");
 
 module.exports = (baseConfig, env, defaultConfig) => {
-  // Extend defaultConfig as you need.
-
+  // Remove old rules
+  defaultConfig.module.rules = defaultConfig.module.rules.filter(
+    item =>
+      !(
+        item.test &&
+        typeof item.test === "object" &&
+        item.test.test &&
+        (item.test.test("t.svg") || item.test.test("t.png"))
+      )
+  );
+  // Add in updated image rule
   defaultConfig.module.rules.push({
-    test: /\.(png|jpg|gif|svg)$/i,
-    use: [
-      {
-        loader: "url-loader",
-        options: {
-          name: "[name].[ext]"
-        }
-      }
-    ]
+    test: /\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2)(\?.*)?$/,
+    loader: require.resolve("file-loader"),
+    query: {
+      name: "static/media/[name].[hash:8].[ext]"
+    }
   });
 
   return defaultConfig;
